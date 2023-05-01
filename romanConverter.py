@@ -59,25 +59,26 @@ def convert():
     except ValueError as e:
         messagebox.showerror("Error", e)
 
-
+font_family = "Verdana"
 # Create the GUI window
 app = tk.Tk()
 app.title("Roman to Decimal Converter")
 
-frame = tk.Frame(app, padx=50, pady=20)
+frame = tk.Frame(app, padx=50, pady=20,background="white")
 frame.pack()
 # Create the label and entry widgets
-label = tk.Label(frame, text="Enter a Roman number between 1 and 3999:", font="15")
+label = tk.Label(frame, text="Enter a Roman number between 1 and 3999:", font=(font_family, 12),background="white")
 label.grid(row=0, column=0, sticky="w")
 
-entry = tk.Entry(frame, width=40,font="10",border=False)
-entry.grid(row=1, column=0, sticky="w")
+entry = tk.Entry(frame, width=40,font="10",border=True,background="#eef1ee",foreground="red")
+entry.grid(row=1, column=0, sticky="w",pady=10)
 # Create the button and result label widgets
-convert_button = tk.Button(frame, text="Convert", command=convert, background="blue",foreground="white",border=False)
+convert_button = tk.Button(frame, text="Convert", command=convert, background="blue",foreground="white",border=False,font=(font_family, 9,"bold"))
 convert_button.grid(row=2, column=0, pady=10, sticky="w")
 
+
 result_var = tk.StringVar()
-result_label = tk.Label(frame, textvariable=result_var,font="15", foreground="green")
+result_label = tk.Label(frame, textvariable=result_var,font=(font_family, 12), foreground="green",border=True,width=36,pady=15)
 result_label.grid(row=3, column=0, sticky="w")
 # Start the main loop
 app.mainloop()
